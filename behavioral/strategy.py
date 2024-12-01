@@ -5,7 +5,7 @@ class PlayStyle:
     def play(self):
         pass
 
-# Concrete strategies
+# Concrete strategies for various music styles
 class AcousticStyle(PlayStyle):
     def play(self):
         return "🎸 Strum strum (Acoustic style)"
@@ -17,6 +17,18 @@ class ElectricStyle(PlayStyle):
 class ClassicalStyle(PlayStyle):
     def play(self):
         return "🎹 Plink plonk (Classical piano style)"
+
+class JazzStyle(PlayStyle):
+    def play(self):
+        return "🎷 Doo wop (Jazz style)"
+
+class BluesStyle(PlayStyle):
+    def play(self):
+        return "🎸 Bbbbb blues (Blues guitar style)"
+
+class FunkStyle(PlayStyle):
+    def play(self):
+        return "🎸 Funky groove (Funk style)"
 
 # Context class (Musician with strategy)
 class Musician:
@@ -32,12 +44,22 @@ class Musician:
 
 # Client code to use the Strategy pattern
 if __name__ == "__main__":
-    alice = Musician("Alice", AcousticStyle())
-    bob = Musician("Bob", ElectricStyle())
+    Marisco = Musician("Marisco", AcousticStyle())
+    León = Musician("León", ElectricStyle())
+    Adultante = Musician("Adultante", JazzStyle())
 
-    alice.perform()  # Alice playing in acoustic style
-    bob.perform()    # Bob playing in electric style
+    Marisco.perform()  # Marisco playing in acoustic style
+    León.perform()    # León playing in electric style
+    Adultante.perform()  # Adultante playing in jazz style
 
-    print("\nChanging Alice's play style to classical:")
-    alice.set_play_style(ClassicalStyle())
-    alice.perform()  # Alice playing in classical style
+    print("\nChanging Marisco's play style to classical:")
+    Marisco.set_play_style(ClassicalStyle())
+    Marisco.perform()  # Marisco playing in classical style
+
+    print("\nChanging León's play style to blues:")
+    León.set_play_style(BluesStyle())
+    León.perform()  # León playing in blues style
+
+    print("\nChanging Adultante's play style to funk:")
+    Adultante.set_play_style(FunkStyle())
+    Adultante.perform()  # Adultante playing in funk style

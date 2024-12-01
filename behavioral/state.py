@@ -15,6 +15,16 @@ class PlayingState(PlayerState):
     def play(self):
         return "▶️ The player is playing music now!"
 
+# Concrete state class for paused state
+class PausedState(PlayerState):
+    def play(self):
+        return "⏸️ The player is paused. Press play to resume."
+
+# Concrete state class for muted state
+class MutedState(PlayerState):
+    def play(self):
+        return "🔇 The player is muted, but still playing music!"
+
 # Context class (Music Player)
 class MusicPlayer:
     def __init__(self):
@@ -36,3 +46,15 @@ if __name__ == "__main__":
     print("\nChanging state to playing:")
     player.set_state(PlayingState())
     player.press_play()  # Playing state
+
+    print("\nChanging state to paused:")
+    player.set_state(PausedState())
+    player.press_play()  # Paused state
+
+    print("\nChanging state to muted:")
+    player.set_state(MutedState())
+    player.press_play()  # Muted state
+
+    print("\nChanging state back to playing:")
+    player.set_state(PlayingState())
+    player.press_play()  # Playing state again

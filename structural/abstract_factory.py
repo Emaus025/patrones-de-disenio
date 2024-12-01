@@ -39,6 +39,24 @@ class DrumCase(InstrumentCase):
     def material(self):
         return "Reinforced plastic 🛢️"
 
+# Concrete classes for Saxophone
+class Saxophone(Instrument):
+    def play(self):
+        return "🎷 Woo woo (Saxophone sound)"
+
+class SaxophoneCase(InstrumentCase):
+    def material(self):
+        return "Soft leather case 🧳"
+
+# Concrete classes for Flute
+class Flute(Instrument):
+    def play(self):
+        return "🎶 Fweet fweet (Flute sound)"
+
+class FluteCase(InstrumentCase):
+    def material(self):
+        return "Light wooden case 🌳"
+
 # Abstract Factory for creating instruments and cases
 class InstrumentFactory(ABC):
     @abstractmethod
@@ -73,16 +91,34 @@ class DrumFactory(InstrumentFactory):
     def create_case(self):
         return DrumCase()
 
+# Concrete factory for Saxophones
+class SaxophoneFactory(InstrumentFactory):
+    def create_instrument(self):
+        return Saxophone()
+
+    def create_case(self):
+        return SaxophoneCase()
+
+# Concrete factory for Flutes
+class FluteFactory(InstrumentFactory):
+    def create_instrument(self):
+        return Flute()
+
+    def create_case(self):
+        return FluteCase()
+
 # Client code to use the factories
 if __name__ == "__main__":
-    print("Choose an instrument: guitar, piano, drums")
+    print("Choose an instrument: guitar, piano, drums, saxophone, flute")
     instrument_type = input("Your choice: ").lower()
 
     # Map input to the correct factory
     factories = {
         "guitar": GuitarFactory(),
         "piano": PianoFactory(),
-        "drums": DrumFactory()
+        "drums": DrumFactory(),
+        "saxophone": SaxophoneFactory(),
+        "flute": FluteFactory()
     }
 
     factory = factories.get(instrument_type)
