@@ -1,4 +1,5 @@
 # Musical Instruments Design Patterns
+# Why in english? Cuz I have to work in my productiooooon xd 
 
 This repository contains several design patterns implemented with a musical instruments theme. Each pattern is demonstrated through Python code examples that simulate how instruments like guitars, pianos, and drums can be modeled with various software design patterns.
 
