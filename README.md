@@ -93,5 +93,4 @@ The **Builder** pattern allows constructing complex objects step by step. In thi
   - `ElectricGuitarBuilder`: Concrete builder class.
   - `GuitarDirector`: Director that constructs the guitar using the builder.
 
-## Project Structure
 
